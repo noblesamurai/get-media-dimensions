@@ -1,7 +1,23 @@
-export default function (input, options = {}) {
-  if (typeof input !== 'string') {
-    throw new Error('Expected input to be string');
-  }
+const getAudioDimensions = require('./audio');
+const getImageDimensions = require('./image');
+const getVideoDimensions = require('./video');
 
-  return `${input} & ${options.postfix || 'rainbow'}`;
+const functions = {
+  audio: getAudioDimensions,
+  image: getImageDimensions,
+  video: getVideoDimensions
+};
+
+/**
+ * Get the dimensional info for a given filename and file type.
+ *
+ * @param {string} filename
+ * @param {string} type
+ * @return {object}
+ */
+async function getDimensions (urlOrFilename, type) {
+  if (!functions[type]) throw new Error(`unknown type ${type}`);
+  return functions[type](urlOrFilename);
 }
+
+module.exports = getDimensions;

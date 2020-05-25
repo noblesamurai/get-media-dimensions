@@ -1,28 +1,47 @@
 {
   "name": "get-media-dimensions",
   "version": "0.0.0",
-  "description": "get video or image dimensions",
+  "description": "get video, image or audio dimensions",
   "main": "src/index.js",
   "files": [
     "src"
   ],
   "scripts": {
-    "coverage": "nyc -a -c -r text -r lcov npm test",
-    "test": "npm run lint && mocha --recursive test",
-    "lint": "semistandard"
+    "coverage": "nyc npm test",
+    "pretest": "semistandard",
+    "test": "mocha --recursive test"
   },
   "repository": {
-    "url": "aeh/get-media-dimensions",
+    "url": "git://github.com/noblesamurai/get-media-dimensions.git",
     "type": "git"
   },
-  "author": "aeh<andrew@noblesamurai.com>",
-  "license": "MIT",
-  "dependencies": {},
+  "author": "Andrew Harris <andrew@noblesamurai.com>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "ffprobe-client": "^1.1.6",
+    "ffprobe-static": "^3.0.0",
+    "got": "^11.1.4",
+    "sharp": "^0.25.3"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
-    "semistandard": "^14.0.0",
+    "chai-as-promised": "^7.1.1",
+    "dirty-chai": "^2.0.1",
+    "express": "^4.17.1",
     "mocha": "^7.0.0",
-    "nyc": "^15.0.0"
+    "nyc": "^15.0.0",
+    "semistandard": "^14.0.0"
+  },
+  "nyc": {
+    "include": [
+      "src"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "cache": true,
+    "all": true
   },
   "semistandard": {
     "env": [

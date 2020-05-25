@@ -1,6 +1,6 @@
 # get-media-dimensions
 
-> get video or image dimensions
+> get video, image or audio dimensions
 
 ## Installation
 
@@ -13,17 +13,20 @@ $ npm install get-media-dimensions
 ## Usage
 
 ```js
-// Several examples of usage.
-// Usually copying and pasting code from the tests and making the code standalone suffices.
-// PLEASE_FILL_IN_HERE
+const getMediaDimensions = require('get-media-dimensions');
+
+// get video dimensions = { width, height, duration }
+const dimensions = await getMediaDimensions('./video.mp4', 'video');
+const dimensions = await getMediaDimensions('https://somewhere.com/video.mp4', 'video');
+
+// get image dimensions = { width, height }
+const dimensions = await getMediaDimensions('./image.jpg', 'image');
+const dimensions = await getMediaDimensions('https://somewhere.com/image.jpg', 'image');
+
+// get audio dimensions = { duration }
+const dimensions = await getMediaDimensions('./audio.mp3', 'audio');
+const dimensions = await getMediaDimensions('https://somewhere.com/audio.mp3', 'audio');
 ```
-
-## API
-
-PLEASE_FILL_IN_HERE
-
-Note: To regenerate this section from the jsdoc run `npm run docs` and paste
-the output above.
 
 ## License
 
@@ -43,7 +46,7 @@ are permitted provided that the following conditions are met:
   list of conditions and the following disclaimer in the documentation and/or
   other materials provided with the distribution.
 
-* Neither the name of the Andrew Harris nor the names of its
+* Neither the name of the copyright holder nor the names of its
   contributors may be used to endorse or promote products derived from
   this software without specific prior written permission.
 
