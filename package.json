@@ -1,0 +1,32 @@
+{
+  "name": "get-media-dimensions",
+  "version": "0.0.0",
+  "description": "get video or image dimensions",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "coverage": "nyc -a -c -r text -r lcov npm test",
+    "test": "npm run lint && mocha --recursive test",
+    "lint": "semistandard"
+  },
+  "repository": {
+    "url": "aeh/get-media-dimensions",
+    "type": "git"
+  },
+  "author": "aeh<andrew@noblesamurai.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "semistandard": "^14.0.0",
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0"
+  },
+  "semistandard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}
