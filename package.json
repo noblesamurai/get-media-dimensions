@@ -7,6 +7,7 @@
     "src"
   ],
   "scripts": {
+    "jsdoc": "jsdoc-md",
     "coverage": "nyc npm test",
     "pretest": "semistandard",
     "test": "mocha --recursive test"
@@ -28,6 +29,7 @@
     "chai-as-promised": "^7.1.1",
     "dirty-chai": "^2.0.1",
     "finalhandler": "^1.1.2",
+    "jsdoc-md": "^6.0.0",
     "mocha": "^7.0.0",
     "nyc": "^15.0.0",
     "semistandard": "^14.0.0",
