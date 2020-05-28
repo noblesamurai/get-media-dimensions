@@ -1,29 +1,53 @@
 # get-media-dimensions
 
-> get video or image dimensions
+> get video, image or audio dimensions
 
 ## Installation
 
 This module is installed via npm:
 
-``` bash
+```bash
 $ npm install get-media-dimensions
-```
-
-## Usage
-
-```js
-// Several examples of usage.
-// Usually copying and pasting code from the tests and making the code standalone suffices.
-// PLEASE_FILL_IN_HERE
 ```
 
 ## API
 
-PLEASE_FILL_IN_HERE
+### getMediaDimensions(urlOrFilename, type) ⇒ <code>object</code>
 
-Note: To regenerate this section from the jsdoc run `npm run docs` and paste
-the output above.
+Get the dimensional info for a given filename and file type.
+
+| Parameter       | Type   | Description                                       |
+| :-------------- | :----- | :------------------------------------------------ |
+| `urlOrFilename` | string | either a remote url or a local filename.          |
+| `type`          | string | the type of media (`audio`, `image`, or `video`). |
+
+#### Examples
+
+_Get video dimensions._
+
+> ```js
+> const getMediaDimensions = require('get-media-dimensions');
+>
+> // get video dimensions = { width, height, duration }
+> const dimensions = await getMediaDimensions('./video.mp4');
+> const dimensions = await getMediaDimensions('https://somewhere.com/video.mp4');
+> ```
+
+_Get image dimensions._
+
+> ```js
+> // get image dimensions = { width, height }
+> const dimensions = await getMediaDimensions('./image.jpg', 'image');
+> const dimensions = await getMediaDimensions('https://somewhere.com/image.jpg', 'image');
+> ```
+
+_Get audio dimensions._
+
+> ```js
+> // get audio dimensions = { duration }
+> const dimensions = await getMediaDimensions('./audio.mp3', 'audio');
+> const dimensions = await getMediaDimensions('https://somewhere.com/audio.mp3', 'audio');
+> ```
 
 ## License
 
@@ -36,14 +60,14 @@ All rights reserved.
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
-* Redistributions of source code must retain the above copyright notice, this
+- Redistributions of source code must retain the above copyright notice, this
   list of conditions and the following disclaimer.
 
-* Redistributions in binary form must reproduce the above copyright notice, this
+- Redistributions in binary form must reproduce the above copyright notice, this
   list of conditions and the following disclaimer in the documentation and/or
   other materials provided with the distribution.
 
-* Neither the name of the Andrew Harris nor the names of its
+- Neither the name of the copyright holder nor the names of its
   contributors may be used to endorse or promote products derived from
   this software without specific prior written permission.
 
