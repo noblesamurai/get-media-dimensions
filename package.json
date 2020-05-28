@@ -1,6 +1,6 @@
 {
   "name": "get-media-dimensions",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "description": "get video, image or audio dimensions",
   "main": "src/index.js",
   "files": [
