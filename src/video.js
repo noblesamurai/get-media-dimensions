@@ -1,5 +1,4 @@
 const ffprobe = require('ffprobe-client');
-const ffprobePath = require('ffprobe-static').path;
 
 /**
  * Get rotation info from a video streams metadata
@@ -19,8 +18,8 @@ function getVideoRotation (streamMetadata) {
  * @param {string} urlOrFilename
  * @return {object} { width, height, duration }
  */
-async function getVideoDimensions (urlOrFilename) {
-  const metadata = await ffprobe(urlOrFilename, { path: ffprobePath });
+async function getVideoDimensions (urlOrFilename, options) {
+  const metadata = await ffprobe(urlOrFilename, { path: options.ffprobePath });
   const stream = metadata.streams.find(s => s.codec_type === 'video');
   if (!stream) throw new Error('video stream not found');
   const rotation = getVideoRotation(stream);

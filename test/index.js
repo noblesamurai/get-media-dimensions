@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 const path = require('path');
 const getMediaDimensions = require('..');
+const { path: ffprobePath } = require('ffprobe-static');
 
 describe('get media dimensions (index)', function () {
   it('should return image dimensions', async function () {
@@ -11,18 +12,18 @@ describe('get media dimensions (index)', function () {
 
   it('should return video dimensions', async function () {
     const filename = path.resolve(__dirname, 'fixtures/video.mp4');
-    const dimensions = await getMediaDimensions(filename, 'video');
+    const dimensions = await getMediaDimensions(filename, 'video', { ffprobePath });
     expect(dimensions).to.deep.equal({ width: 50, height: 28, duration: 30 });
   });
 
   it('should return audio dimensions', async function () {
     const filename = path.resolve(__dirname, 'fixtures/audio.mp3');
-    const dimensions = await getMediaDimensions(filename, 'audio');
+    const dimensions = await getMediaDimensions(filename, 'audio', { ffprobePath });
     expect(dimensions.duration).to.be.closeTo(46, 0.2);
   });
 
   it('should throw an error if type is unknown', async function () {
     const filename = path.resolve(__dirname, 'fixtures/video.mp4');
-    await expect(getMediaDimensions(filename, 'fish')).to.be.rejectedWith('unknown type');
+    await expect(getMediaDimensions(filename, 'fish'), { ffprobePath }).to.be.rejectedWith('unknown type');
   });
 });
