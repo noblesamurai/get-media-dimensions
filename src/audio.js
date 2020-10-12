@@ -1,5 +1,5 @@
 const ffprobe = require('ffprobe-client');
-const ffprobePath = require('ffprobe-static').path;
+const ffprobePath = require('./ffprobe-path');
 
 /**
  * Get the dimensional info for an audio file.
