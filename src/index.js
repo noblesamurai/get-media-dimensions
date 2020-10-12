@@ -1,7 +1,6 @@
 const getAudioDimensions = require('./audio');
 const getImageDimensions = require('./image');
 const getVideoDimensions = require('./video');
-const ow = require('ow');
 
 const functions = {
   audio: getAudioDimensions,
@@ -39,18 +38,11 @@ const functions = {
  * @name getMediaDimensions
  * @param {string} urlOrFilename either a remote url or a local filename.
  * @param {string} type the type of media (`audio`, `image`, or `video`).
- * @param {object} options
- * @param {string} options.ffprobePath Path to ffprobe.
  * @return {object}
  */
-async function getMediaDimensions (urlOrFilename, type, options = {}) {
-  if (['audio', 'video'].includes(type)) {
-    ow(options, ow.object.partialShape({
-      ffprobePath: ow.string.nonEmpty
-    }));
-  }
+async function getMediaDimensions (urlOrFilename, type) {
   if (!functions[type]) throw new Error(`unknown type ${type}`);
-  return functions[type](urlOrFilename, options);
+  return functions[type](urlOrFilename);
 }
 
 module.exports = getMediaDimensions;

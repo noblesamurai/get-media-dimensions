@@ -16,24 +16,21 @@ $ npm install get-media-dimensions
 
 Get the dimensional info for a given filename and file type.
 
-| Parameter             | Type   | Description                                       |
-| :-------------------- | :----- | :------------------------------------------------ |
-| `urlOrFilename`       | string | either a remote url or a local filename.          |
-| `type`                | string | the type of media (`audio`, `image`, or `video`). |
-| `options`             | object | options                                           |
-| `options.ffprobePath` | string | location of ffprobe binary (for audio and video)  |
+| Parameter       | Type   | Description                                       |
+| :-------------- | :----- | :------------------------------------------------ |
+| `urlOrFilename` | string | either a remote url or a local filename.          |
+| `type`          | string | the type of media (`audio`, `image`, or `video`). |
 
 #### Examples
 
 _Get video dimensions._
 
 > ```js
-> ffprobePath = '/path/to/ffprobe';
 > const getMediaDimensions = require('get-media-dimensions');
 >
 > // get video dimensions = { width, height, duration }
-> const dimensions = await getMediaDimensions('./video.mp4', { ffprobePath });
-> const dimensions = await getMediaDimensions('https://somewhere.com/video.mp4', { ffprobePath });
+> const dimensions = await getMediaDimensions('./video.mp4');
+> const dimensions = await getMediaDimensions('https://somewhere.com/video.mp4');
 > ```
 
 _Get image dimensions._
@@ -48,8 +45,8 @@ _Get audio dimensions._
 
 > ```js
 > // get audio dimensions = { duration }
-> const dimensions = await getMediaDimensions('./audio.mp3', 'audio', { ffprobePath });
-> const dimensions = await getMediaDimensions('https://somewhere.com/audio.mp3', 'audio', { ffprobePath });
+> const dimensions = await getMediaDimensions('./audio.mp3', 'audio');
+> const dimensions = await getMediaDimensions('https://somewhere.com/audio.mp3', 'audio');
 > ```
 
 ## License
