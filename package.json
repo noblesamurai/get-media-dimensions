@@ -1,6 +1,6 @@
 {
   "name": "get-media-dimensions",
-  "version": "1.0.0",
+  "version": "2.0.0-ffprobe.1",
   "description": "get video, image or audio dimensions",
   "main": "src/index.js",
   "files": [
@@ -20,7 +20,6 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "ffprobe-client": "^1.1.6",
-    "ffprobe-static": "^3.0.0",
     "got": "^11.1.4",
     "sharp": "^0.25.3"
   },
@@ -28,6 +27,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "dirty-chai": "^2.0.1",
+    "ffprobe-static": "^3.0.0",
     "finalhandler": "^1.1.2",
     "jsdoc-md": "^6.0.0",
     "mocha": "^7.0.0",
@@ -50,5 +50,8 @@
     "env": [
       "mocha"
     ]
+  },
+  "optionalDependencies": {
+    "ffprobe-static": "^3.0.0"
   }
 }

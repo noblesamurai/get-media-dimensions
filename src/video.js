@@ -1,5 +1,5 @@
 const ffprobe = require('ffprobe-client');
-const ffprobePath = require('ffprobe-static').path;
+const ffprobePath = require('./ffprobe-path');
 
 /**
  * Get rotation info from a video streams metadata
