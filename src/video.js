@@ -24,7 +24,7 @@ async function getVideoDimensions (urlOrFilename) {
   const stream = metadata.streams.find(s => s.codec_type === 'video');
   if (!stream) throw new Error('video stream not found');
   const rotation = getVideoRotation(stream);
-  const { width, height, duration } = stream;
+  const { width, height, duration = metadata.format.duration } = stream;
   return Math.abs(rotation % 180) === 90
     ? { width: height, height: width, duration: parseFloat(duration) }
     : { width, height, duration: parseFloat(duration) };
