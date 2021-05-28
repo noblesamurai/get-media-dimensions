@@ -22,6 +22,12 @@ describe('get video dimensions', function () {
     }
   });
 
+  it('should fallback to global format duration for webm files', async function () {
+    const filename = path.resolve(__dirname, 'fixtures', 'video.webm');
+    const dimensions = await getVideoDimensions(filename);
+    expect(dimensions).to.deep.equal({ width: 50, height: 28, duration: 30.024 });
+  });
+
   it('should reject with an error for a bad local file', async function () {
     const filename = path.resolve(__dirname, 'fixtures/does_not_exist.mp4');
     await expect(getVideoDimensions(filename)).to.be.rejected();

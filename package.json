@@ -1,6 +1,6 @@
 {
   "name": "get-media-dimensions",
-  "version": "2.0.1",
+  "version": "2.0.2-screen-recording.1",
   "description": "get video, image or audio dimensions",
   "main": "src/index.js",
   "files": [
