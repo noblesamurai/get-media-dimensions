@@ -49,6 +49,20 @@ _Get audio dimensions._
 > const dimensions = await getMediaDimensions('https://somewhere.com/audio.mp3', 'audio');
 > ```
 
+## Contributing
+
+### Prerequisites
+
+```
+$ pip install pre-commit
+```
+
+### Installation
+
+```
+$ pre-commit install --install-hooks
+```
+
 ## License
 
 The BSD License
