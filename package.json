@@ -1,6 +1,6 @@
 {
   "name": "get-media-dimensions",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "get video, image or audio dimensions",
   "main": "src/index.js",
   "files": [
@@ -23,11 +23,11 @@
     "got": "^11.1.4"
   },
   "peerDependencies": {
-    "ffprobe-static": "^3.0.0",
+    "node-ffprobe-installer": "^1.2.3",
     "sharp": ">=0.25 <1"
   },
   "peerDependenciesMeta": {
-    "ffprobe-static": {
+    "node-ffprobe-installer": {
       "optional": true
     }
   },
@@ -61,6 +61,6 @@
     ]
   },
   "optionalDependencies": {
-    "ffprobe-static": "^3.0.0"
+    "node-ffprobe-installer": "^1.2.3"
   }
 }
